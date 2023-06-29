@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(const MyApp());
@@ -6,7 +7,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
 
   // This widget is the root of your application.
   @override
@@ -18,6 +18,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
+        appBar: AppBar(
+          title: Center(
+            child: Text('Joguinho Dados'),
+          ),
+          backgroundColor: Colors.red.shade800,
+        ),
         backgroundColor: Colors.white,
         body:  Dados(),
       ),
@@ -43,7 +49,9 @@ class _DadosState extends State<Dados> {
         children: [
           TextButton(
               onPressed: () {
-                numerodado = 2;
+              setState(() {
+                numerodado = Random().nextInt(6) + 1;
+              });
               },
               child: Image.asset('imagens/dd$numerodado.png')),
 
@@ -51,9 +59,11 @@ class _DadosState extends State<Dados> {
 
           TextButton(
               onPressed: () {
-                // print('Botão Direito Apertado');
+                setState(() {
+                  numerodado = Random().nextInt(6) + 1;
+                });
               },
-              child: Image.asset('imagens/dd1.png')),
+              child: Image.asset('imagens/dd$numerodado.png')),
         ],
       ),
     );
