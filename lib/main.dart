@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:jogodados/pages/Layout.dart';
+import 'package:jogodados/pages/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,66 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Center(
-            child: Text('Joguinho Dados'),
-          ),
-          backgroundColor: Colors.red.shade800,
-        ),
-        backgroundColor: Colors.white,
-        body:  const Dados(),
-      ),
+      home: const HomePage(),
     );
   }
 }
-
-class Dados extends StatefulWidget {
-  const Dados({Key? key}) : super(key: key);
-
-  @override
-  State<Dados> createState() => _DadosState();
-}
-
-class _DadosState extends State<Dados> {
-  var numerodadoesquerdo = 1;
-  var numerodadodireito = 1;
-
-  void ExecutarDados() {
-    setState(() {
-      numerodadoesquerdo = Random().nextInt(6) + 1;
-      numerodadodireito = Random().nextInt(6) + 1;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextButton(
-              onPressed: () {
-               ExecutarDados();
-              },
-              child: Image.asset('imagens/dd$numerodadoesquerdo.png')),
-
-          const SizedBox(width: 30,),
-
-          TextButton(
-              onPressed: () {
-               ExecutarDados();
-              },
-              child: Image.asset('imagens/dd$numerodadodireito.png')),
-        ],
-      ),
-    );
-  }
-}
-
-
