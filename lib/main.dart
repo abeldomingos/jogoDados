@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Center(
+          title: const Center(
             child: Text('Joguinho Dados'),
           ),
           backgroundColor: Colors.red.shade800,
         ),
         backgroundColor: Colors.white,
-        body:  Dados(),
+        body:  const Dados(),
       ),
     );
   }
@@ -42,6 +42,13 @@ class _DadosState extends State<Dados> {
   var numerodadoesquerdo = 1;
   var numerodadodireito = 1;
 
+  void ExecutarDados() {
+    setState(() {
+      numerodadoesquerdo = Random().nextInt(6) + 1;
+      numerodadodireito = Random().nextInt(6) + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -50,10 +57,7 @@ class _DadosState extends State<Dados> {
         children: [
           TextButton(
               onPressed: () {
-              setState(() {
-                numerodadoesquerdo = Random().nextInt(6) + 1;
-                numerodadodireito = Random().nextInt(6) + 1;
-              });
+               ExecutarDados();
               },
               child: Image.asset('imagens/dd$numerodadoesquerdo.png')),
 
@@ -61,10 +65,7 @@ class _DadosState extends State<Dados> {
 
           TextButton(
               onPressed: () {
-                setState(() {
-                  numerodadodireito = Random().nextInt(6) + 1;
-                  numerodadoesquerdo = Random().nextInt(6) + 1;
-                });
+               ExecutarDados();
               },
               child: Image.asset('imagens/dd$numerodadodireito.png')),
         ],
