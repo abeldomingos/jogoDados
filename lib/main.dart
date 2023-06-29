@@ -39,7 +39,8 @@ class Dados extends StatefulWidget {
 }
 
 class _DadosState extends State<Dados> {
-  var numerodado = 1;
+  var numerodadoesquerdo = 1;
+  var numerodadodireito = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -50,20 +51,22 @@ class _DadosState extends State<Dados> {
           TextButton(
               onPressed: () {
               setState(() {
-                numerodado = Random().nextInt(6) + 1;
+                numerodadoesquerdo = Random().nextInt(6) + 1;
+                numerodadodireito = Random().nextInt(6) + 1;
               });
               },
-              child: Image.asset('imagens/dd$numerodado.png')),
+              child: Image.asset('imagens/dd$numerodadoesquerdo.png')),
 
           const SizedBox(width: 30,),
 
           TextButton(
               onPressed: () {
                 setState(() {
-                  numerodado = Random().nextInt(6) + 1;
+                  numerodadodireito = Random().nextInt(6) + 1;
+                  numerodadoesquerdo = Random().nextInt(6) + 1;
                 });
               },
-              child: Image.asset('imagens/dd$numerodado.png')),
+              child: Image.asset('imagens/dd$numerodadodireito.png')),
         ],
       ),
     );
