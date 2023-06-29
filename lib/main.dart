@@ -7,6 +7,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -18,14 +19,21 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: const Dados(),
+        body:  Dados(),
       ),
     );
   }
 }
 
-class Dados extends StatelessWidget {
+class Dados extends StatefulWidget {
   const Dados({Key? key}) : super(key: key);
+
+  @override
+  State<Dados> createState() => _DadosState();
+}
+
+class _DadosState extends State<Dados> {
+  var numerodado = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -34,21 +42,22 @@ class Dados extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextButton(
-            onPressed: () {
-              print('Botão Esquerdo Apertado');
-            },
-              child: Image.asset('imagens/dd1.png')),
+              onPressed: () {
+                numerodado = 2;
+              },
+              child: Image.asset('imagens/dd$numerodado.png')),
 
           const SizedBox(width: 30,),
 
           TextButton(
-            onPressed: () {
-              print('Botão Direito Apertado');
-            },
+              onPressed: () {
+                // print('Botão Direito Apertado');
+              },
               child: Image.asset('imagens/dd1.png')),
         ],
       ),
     );
   }
 }
+
 
