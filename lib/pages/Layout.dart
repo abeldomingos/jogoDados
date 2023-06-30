@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:assets_audio_player/assets_audio_player.dart';
 import 'dart:math';
 
 
@@ -58,6 +59,20 @@ class _DadosState extends State<Dados> {
                     },
                     child: Image.asset('imagens/dd$numerodadodireito.png')),
               ],
+            ),
+          ),
+          SizedBox(height: 30,),
+          //OPÇÃO OUVIR MUSIC
+          Text('Oiça uma música enquanto Jogas',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w900,
+          ),
+          ),
+          Center(
+            child: TextButton(
+              onPressed: () {},
+              child: Text('Clique aqui'),
             ),
           ),
         ],
